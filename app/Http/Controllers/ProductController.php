@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Model\Product;
+use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Http\Resources\Product\ProductResource;
 
 class ProductController extends Controller
 {
@@ -15,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return Product::all();
     }
 
     /**
@@ -47,7 +48,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        // return the product with datatbase columns names
+        //return $product;
+
+        // return the product with columns name we returns in resource file
+        return new ProductResource($product);
     }
 
     /**
