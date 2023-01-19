@@ -31,15 +31,16 @@ Route::group(['prefix'=>'products'], function(){
     Route::apiResource('/{product}/reviews', ReviewController::class);
 });
 
-// Route::middleware('auth:api')->get('user', function (Request $request) {
-//     return $request->user;
-// });
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    //return $request->user;
+    return auth()->user();
+});
 
 Route::post('register', [PassportController::class, 'register']);
 Route::post('login', [PassportController::class, 'login']);
 
 // put all api protected routes here
-Route::middleware('auth:api')->group(function () {
-    Route::post('user-detail', [PassportController::class, 'userDetail']);
-    Route::post('logout', [PassportController::class, 'logout']);
-});
+// Route::middleware('auth:api')->group(function () {
+//     Route::post('user-detail', [PassportController::class, 'userDetail']);
+//     Route::post('logout', [PassportController::class, 'logout']);
+// });
