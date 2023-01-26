@@ -42,10 +42,16 @@ class Handler extends ExceptionHandler
         // });
 
         $this->renderable(function (NotFoundHttpException $e, $request) {
-            return response()->json(
-                [
-                    'error' => 'Product Model not Found'
-                ],Response::HTTP_NOT_FOUND);
+            //if($request->wantsJson()){}
+            if($request->is('api/*')){
+
+                return response()->json(
+                    [
+                        'error' => 'Product Model not Found'
+                    ],Response::HTTP_NOT_FOUND);
+
+            }
+            
         });
     }
 }
