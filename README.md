@@ -62,3 +62,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## About Project 
+
+Laravel API project to manage products (add, edit, delete,
+update) CRUD and manage product's reviews also (add, edit,
+delete, update) CRUD.
+Depended on Resources and Collections also used Requests.
+Used bearer token to authorize requests.
+
